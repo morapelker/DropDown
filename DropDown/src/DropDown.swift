@@ -509,7 +509,9 @@ public final class TedoooDropDown: UIView {
 	}
     
     private var lastRow: IndexPath?
-
+    
+    
+    private let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 }
 
 //MARK: - Setup
@@ -590,7 +592,7 @@ private extension TedoooDropDown {
         hide()
     }
     
-    
+
     
     @objc private func handlePan(_ pan: UIPanGestureRecognizer) {
         guard let index = tableView.indexPathForRow(at: pan.location(in: tableView)) else { return }
@@ -598,6 +600,7 @@ private extension TedoooDropDown {
         case .began:
             lastRow = index
             tableView.cellForRow(at: index)?.setHighlighted(true, animated: true)
+            feedbackGenerator.impactOccurred()
         case .changed:
             if index != lastRow {
                 if let lastRow = lastRow {
@@ -605,6 +608,7 @@ private extension TedoooDropDown {
                     tableView.cellForRow(at: index)?.setHighlighted(true, animated: true)
                 }
                 lastRow = index
+                feedbackGenerator.impactOccurred()
             }
         case .ended:
             selectedRow(indexPath: index)
