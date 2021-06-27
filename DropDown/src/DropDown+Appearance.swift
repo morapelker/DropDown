@@ -10,10 +10,10 @@
 
 import UIKit
 
-extension DropDown {
+extension TedoooDropDown {
 
 	public class func setupDefaultAppearance() {
-		let appearance = DropDown.appearance()
+		let appearance = TedoooDropDown.appearance()
 
 		appearance.cellHeight = DPDConstant.UI.RowHeight
 		appearance.backgroundColor = DPDConstant.UI.BackgroundColor

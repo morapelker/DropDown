@@ -22,13 +22,13 @@ class ViewController: UIViewController {
 	
 	//MARK: - DropDown's
 	
-	let chooseArticleDropDown = DropDown()
-	let amountDropDown = DropDown()
-	let chooseDropDown = DropDown()
-	let centeredDropDown = DropDown()
-	let rightBarDropDown = DropDown()
+	let chooseArticleDropDown = TedoooDropDown()
+	let amountDropDown = TedoooDropDown()
+	let chooseDropDown = TedoooDropDown()
+	let centeredDropDown = TedoooDropDown()
+	let rightBarDropDown = TedoooDropDown()
 	
-	lazy var dropDowns: [DropDown] = {
+	lazy var dropDowns: [TedoooDropDown] = {
 		return [
 			self.chooseArticleDropDown,
 			self.amountDropDown,
@@ -94,7 +94,7 @@ class ViewController: UIViewController {
 	}
 	
 	func setupDefaultDropDown() {
-		DropDown.setupDefaultAppearance()
+        TedoooDropDown.setupDefaultAppearance()
 		
 		dropDowns.forEach {
 			$0.cellNib = UINib(nibName: "DropDownCell", bundle: Bundle(for: DropDownCell.self))
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
 	}
 	
 	func customizeDropDown(_ sender: AnyObject) {
-		let appearance = DropDown.appearance()
+		let appearance = TedoooDropDown.appearance()
 		
 		appearance.cellHeight = 60
 		appearance.backgroundColor = UIColor(white: 1, alpha: 1)
